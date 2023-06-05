@@ -1,8 +1,18 @@
 #navbar {
     height: 45px;
-    width: 100%;
-    background-color: red;
+    background-color: rgb(218, 199, 199);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 15px;
+}
+
+#titleLogo {
+    display: inline-flex;
+    align-items: center;
+}
+
+#titleLogo img {
+    height: 40px;
+    margin-right: 15px;
 }

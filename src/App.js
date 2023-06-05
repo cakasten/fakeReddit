@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      {postArray.map(post => <Post key={post.data.id} title={post.data.title} author={post.data.author} />)}
+      {postArray.map(post => <Post key={post.data.id} title={post.data.title} author={post.data.author} body={post.data.selftext} votes={post.data.ups} />)} 
     </div>
   );
 }

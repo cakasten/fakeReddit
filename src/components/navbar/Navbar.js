@@ -1,15 +1,21 @@
 import "./navbar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Search from "./search/search";
 
 const Navbar = (props) => {
   return (
     <div id="navbar">
-      <p>dropdown</p>
+      <div id="dropdown">
+      <FontAwesomeIcon icon={faBars} />
+      </div>
       <div id="titleLogo">
-        <img src={require('../../redditLogo.png')} alt="reddit logo"/>
+        <img src={require("../../redditLogo.png")} alt="reddit logo" />
         <h1>Fake Reddit</h1>
       </div>
-      <Search />
+      <div id="search">
+        <Search />
+      </div>
     </div>
   );
 };

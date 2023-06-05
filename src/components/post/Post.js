@@ -1,10 +1,12 @@
-import "./post.css";
+import Votes from "../votes/Votes";
+import styles from "./post.module.css";
 
 const Post = (props) => {
   return (
-    <div id="post">
-      <h1>{props.title}</h1>
-      <p>Author: {props.author}</p>
+    <div className={styles.post}>
+      <Votes votes='100' />
+      <h1 className={styles.title}>{props.title}</h1>
+      <p className={styles.author}>Posted by: {props.author}</p>
     </div>
   );
 };

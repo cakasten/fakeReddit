@@ -1,4 +1,4 @@
-#navbar {
+.navbar {
   height: 50px;
   background-color: rgb(218, 199, 199);
   display: flex;
@@ -7,34 +7,30 @@
   padding: 0 15px;
 }
 
-#dropdown {
+.dropdown {
 
 }
 
-#titleLogo {
+.titleLogo {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   flex-grow: 2;
 }
 
-#titleLogo img {
+.titleLogo img {
   height: 40px;
   margin-right: 15px;
 }
 
-#search {
-  /* flex-grow: 1; */
-}
-
 @media only screen and (max-width: 580px) {
-  #titleLogo {
+  .titleLogo {
     justify-content: center;
   }
-  #titleLogo h1 {
+  .titleLogo h1 {
     display: none;
   }
-  #titleLogo img {
+  .titleLogo img {
     margin: 0;
   }
 }

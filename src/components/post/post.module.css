@@ -34,6 +34,7 @@
 
 .body {
   display: flex;
+  position: relative;
   justify-content: center;
   grid-column: 2;
   grid-row: 2;

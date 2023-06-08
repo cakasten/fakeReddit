@@ -1,3 +1,4 @@
+import VideoControls from "../videoControls/VideoControls";
 import Votes from "../votes/Votes";
 import styles from "./post.module.css";
 
@@ -12,12 +13,12 @@ const Post = (props) => {
       {props.video ? (
         <div className={styles.body}>
           <video
-            controls
             src={props.video}
             type="video/mp4"
             width="100%"
             height="auto"
           ></video>
+          <VideoControls />
         </div>
       ) : (
         <img className={styles.body} alt="nothing to see" src={props.body} />

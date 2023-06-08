@@ -4,7 +4,7 @@ import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const Votes = (props) => {
     return (
-        <div className={styles.voter}>
+        <div className={props.styles}>
             <FontAwesomeIcon icon={faAngleUp} />
             <p>{props.votes ? props.votes : '-'}</p>
             <FontAwesomeIcon icon={faAngleDown} />

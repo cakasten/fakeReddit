@@ -1,34 +1,54 @@
 .post {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 2fr 4fr 1fr;
-    width: 60%;
-    border-radius: 10px;
-    background-color: antiquewhite;
-    margin: 25px auto;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 300px 0.5fr;
+  width: 60%;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  margin: 25px auto;
 }
 
 .title {
-    grid-column: 2 / span 1;
-    grid-row: 1;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  grid-column: 2 / span 1;
+  grid-row: 1;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
 }
 
 .author {
-    grid-column: 1;
-    grid-row: 3;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  grid-column: 1;
+  grid-row: 3;
 }
 
 .body {
-    grid-column: 2;
-    grid-row: 2;
+  display: flex;
+  justify-content: center;
+  grid-column: 2;
+  grid-row: 2;
 }
 
+img.body {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .subreddit {
-    font-size: 12px;
-    margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  font-size: 12px;
+  margin-right: 5px;
 }

@@ -13,13 +13,13 @@ function App() {
   }
 
   useEffect(getPosts, []);
-  console.log(postArray[2]);
   return (
     <div className="App">
       <Navbar />
       {postArray.map(
         (post) => (
           <Post
+          postData={post}
           key={post.data.id}
           title={post.data.title}
           author={post.data.author}

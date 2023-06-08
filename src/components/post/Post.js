@@ -2,6 +2,7 @@ import Votes from "../votes/Votes";
 import styles from "./post.module.css";
 
 const Post = (props) => {
+  console.log(props.postData);
   return (
     <div className={styles.post}>
       <Votes votes={props.votes} styles={styles.vote} />
@@ -19,7 +20,7 @@ const Post = (props) => {
           ></video>
         </div>
       ) : (
-        <img className={styles.body} alt={props.thumbnail} src={props.body} />
+        <img className={styles.body} alt="nothing to see" src={props.body} />
       )}
     </div>
   );

@@ -6,13 +6,17 @@ import { useState } from "react";
 const VideoControls = (props) => {
   const [play, setPlay] = useState(false);
 
-  const handleClick = ()=> {
+  const handleClick = () => {
     setPlay(!play);
-  }
+  };
 
   return (
     <div className={styles.controlBar}>
-      <FontAwesomeIcon className={styles.playPause} onClick={handleClick} icon={play ? faPause : faPlay} />
+      <FontAwesomeIcon
+        className={styles.playPause}
+        onClick={handleClick}
+        icon={play ? faPause : faPlay}
+      />
       <div className={styles.progressBar}>
         <div className={styles.progress}></div>
       </div>

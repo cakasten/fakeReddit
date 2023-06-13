@@ -1,14 +1,62 @@
 .navbar {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
   height: 50px;
+  top: 0;
   background-color: rgb(218, 199, 199);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 15px;
 }
+.category {
+  border: none;
+  border-radius: 15px;
+  margin-left: 15px;
+  height: 30px;
+  max-width: 75px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.545);
+}
 
-.dropdown {
+.category:hover {
+  cursor: pointer;
+}
 
+.category > ul {
+  position: absolute;
+  border-radius: 0 0 20px 20px;
+  padding: 0;
+  top: -300px;
+  width: 200px;
+  min-height: 200px;
+}
+
+.category:hover > ul {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(182, 53, 53, 0.72);
+  transition: all 2s;
+  top: 0;
+}
+
+.category li {
+  list-style-type: none;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  transition: all 0.2s ease-in;
+}
+
+.category li:hover {
+  width: 100%;
+
+  background-color: rgba(0, 0, 0, 0.145);
 }
 
 .titleLogo {

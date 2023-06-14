@@ -5,35 +5,47 @@ import Post from "./components/post/Post";
 
 function App() {
   const [postArray, setPostArray] = useState([]);
-  const categoriesArray = ["popular", "PositiveGridSpark"];
+  const categoriesArray = [
+    "Popular",
+    "Programming Humor",
+    "Ask Reddit"
+  ];
 
-  let [category, setCategory] = useState("popular");
+  let [category, setCategory] = useState("Popular");
 
   const handleCategorySelect = (e) => {
     setCategory(e.target.innerText);
   };
 
+  const handleSearchInput = (e) => {
+    e.preventDefault();
+    setCategory(e.target[1].value)
+  }
+
   useEffect(() => {
+    const parsedCategory = category.split(" ").join("").toLowerCase();
+    setPostArray([]);
     async function getPosts() {
       try {
         const response = await fetch(
-          `https://www.reddit.com/r/${category}.json?limit=10`
+          `https://www.reddit.com/r/${parsedCategory}.json?limit=10`
         );
         const data = await response.json();
-        setPostArray(...postArray, data.data.children);
+        setPostArray(data.data.children);
       } catch (error) {
         console.error("Error:", error);
       }
     }
     getPosts();
-    setPostArray([]);
   }, [category]);
+
   return (
     <div className="App">
       <Navbar
         category={category}
         categories={categoriesArray}
         selectCategory={handleCategorySelect}
+        handleSearchInput={handleSearchInput}
       />
       {postArray.map((post) => (
         <Post

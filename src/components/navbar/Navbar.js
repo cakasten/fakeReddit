@@ -6,24 +6,28 @@ import Search from "../search/search";
 const Navbar = (props) => {
   return (
     <div className={styles.navbar}>
-      <FontAwesomeIcon icon={faBars} />
-      <button className={styles.category}>
-        {props.category}
-        <FontAwesomeIcon icon={faCaretUp} />
-        <ul>
-          {props.categories.map((category) => (
-            <li onClick={props.selectCategory} key={category}>
-              {category}
-            </li>
-          ))}
-        </ul>
-      </button>
-      <div className={styles.titleLogo}>
-        <img src={require("../../redditLogo.png")} alt="reddit logo" />
-        <h1>Fake Reddit</h1>
+      <div className={styles.containerLeft}>
+        <FontAwesomeIcon icon={faBars} />
+        <div className={styles.category}>
+          <p>{props.category}</p>
+          <FontAwesomeIcon icon={faCaretUp} />
+          <ul>
+            {props.categories.map((category) => (
+              <li onClick={props.selectCategory} key={category}>
+                {category}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div>
-        <Search />
+      <div className={styles.container}>
+        <div className={styles.titleLogo}>
+          <img src={require("../../redditLogo.png")} alt="reddit logo" />
+          <h1>Fake Reddit</h1>
+        </div>
+      </div>
+      <div className={styles.containerRight}>
+        <Search className={styles.search} handleSearchInput={props.handleSearchInput} />
       </div>
     </div>
   );

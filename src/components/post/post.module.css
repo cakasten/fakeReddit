@@ -60,6 +60,7 @@ img.body {
   align-items: flex-start;
   font-size: 10px;
   margin-right: 5px;
+  word-break: break-all;
 }
 
 .subreddit:hover {

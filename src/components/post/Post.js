@@ -3,13 +3,24 @@ import Votes from "../votes/Votes";
 import styles from "./post.module.css";
 
 const Post = (props) => {
+  const {
+    votes,
+    title,
+    author,
+    subreddit,
+    video,
+    bodyImg,
+    postData,
+    handleClick,
+  } = props;
+  const noImgKeywords = ["default", "self", "image", ""];
   return (
     <div className={styles.post}>
-      <Votes votes={props.votes} styles={styles.vote} />
-      <h1 className={styles.title}>{props.title}</h1>
-      <p className={styles.author}>Posted by: {props.author}</p>
-      <p className={styles.subreddit}>r/{props.subreddit}</p>
-      {props.video ? (
+      <Votes votes={votes} styles={styles.vote} />
+      <h1 className={styles.title}>{title}</h1>
+      <p className={styles.author}>Posted by: {author}</p>
+      <p className={styles.subreddit} onClick={handleClick}>r/{subreddit}</p>
+      {video && (
         <div className={styles.body}>
           <video
             src={props.video}
@@ -19,8 +30,12 @@ const Post = (props) => {
           ></video>
           <VideoControls />
         </div>
-      ) : (
-        <img className={styles.body} alt="nothing to see" src={props.body} />
+      )}
+      {!noImgKeywords.includes(bodyImg) && (
+        <img src={bodyImg} alt="nothing shown" className={styles.body} />
+      )}
+      {postData.data.selftext && (
+        <p className={styles.bodyText}>{postData.data.selftext}</p>
       )}
     </div>
   );

@@ -5,11 +5,7 @@ import Post from "./components/post/Post";
 
 function App() {
   const [postArray, setPostArray] = useState([]);
-  const categoriesArray = [
-    "Popular",
-    "Programming Humor",
-    "Ask Reddit"
-  ];
+  const categoriesArray = ["Popular", "Programming Humor", "Ask Reddit"];
 
   let [category, setCategory] = useState("Popular");
 
@@ -17,10 +13,14 @@ function App() {
     setCategory(e.target.innerText);
   };
 
+  const handleClick = (e) => {
+    setCategory(e.target.innerText.slice(2).toLowerCase());
+  };
+
   const handleSearchInput = (e) => {
     e.preventDefault();
-    setCategory(e.target[1].value)
-  }
+    setCategory(e.target[1].value);
+  };
 
   useEffect(() => {
     const parsedCategory = category.split(" ").join("").toLowerCase();
@@ -28,12 +28,12 @@ function App() {
     async function getPosts() {
       try {
         const response = await fetch(
-          `https://www.reddit.com/r/${parsedCategory}.json?limit=10`
+          `https://www.reddit.com/r/${parsedCategory}.json?limit=20`
         );
         const data = await response.json();
         setPostArray(data.data.children);
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Error: ", error);
       }
     }
     getPosts();
@@ -47,20 +47,25 @@ function App() {
         selectCategory={handleCategorySelect}
         handleSearchInput={handleSearchInput}
       />
-      {postArray.map((post) => (
-        <Post
-          postData={post}
-          key={post.data.id}
-          title={post.data.title}
-          author={post.data.author}
-          votes={post.data.ups}
-          subreddit={post.data.subreddit}
-          video={
-            post.data.is_video && post.data.media.reddit_video.fallback_url
-          }
-          body={post.data.url}
-        />
-      ))}
+      {postArray.map(
+        (post) =>
+          !post.data.over_18 && (
+            <Post
+              handleClick={handleClick}
+              postData={post}
+              key={post.data.id}
+              title={post.data.title}
+              author={post.data.author}
+              votes={post.data.ups}
+              subreddit={post.data.subreddit}
+              video={
+                post.data.is_video && post.data.media.reddit_video.fallback_url
+              }
+              bodyText={post.data.selftext}
+              bodyImg={post.data.thumbnail}
+            />
+          )
+      )}
     </div>
   );
 }

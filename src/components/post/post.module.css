@@ -41,6 +41,13 @@
   grid-row: 2;
 }
 
+.bodyText {
+  overflow: scroll;
+  padding: 10px;
+  grid-column: 2 / 3;
+  grid-row: 2;
+}
+
 img.body {
   width: 100%;
   height: 100%;
@@ -50,7 +57,11 @@ img.body {
 .subreddit {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   font-size: 10px;
   margin-right: 5px;
+}
+
+.subreddit:hover {
+  cursor: pointer;
 }

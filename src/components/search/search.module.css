@@ -9,6 +9,7 @@ input {
   background-color: rgba(255, 255, 255, 0.679);
   width: 80%;
   max-width: 200px;
+  font-size: 1.8vw;
 }
 
 input:focus {
@@ -19,7 +20,7 @@ button {
   border: none;
   background: none;
   font-size: 1.2em;
-  padding-right: 2px;
+  padding-right: 8px;
 }
 
 button:hover {

@@ -5,7 +5,7 @@ import Post from "./components/post/Post";
 
 function App() {
   const [postArray, setPostArray] = useState([]);
-  const categoriesArray = ["Popular", "Programming Humor"];
+  const categoriesArray = ["Popular", "Programming Humor", "Ask Reddit"];
 
   let [category, setCategory] = useState("Popular");
 

@@ -27,7 +27,10 @@ const Navbar = (props) => {
         </div>
       </div>
       <div className={styles.containerRight}>
-        <Search className={styles.search} handleSearchInput={props.handleSearchInput} />
+        <Search
+          className={styles.search}
+          handleSearchInput={props.handleSearchInput}
+        />
       </div>
     </div>
   );

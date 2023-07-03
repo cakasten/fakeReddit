@@ -1,1 +1,3 @@
-A fake reddit app using react and redux
+A fake reddit app that uses Reddit's JSON api.
+
+to start the App, run `npm  install` and then `npm start` 

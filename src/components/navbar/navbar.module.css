@@ -109,4 +109,9 @@
   .category p {
     overflow: hidden;
   }
+
+  form button {
+    font-size: 2.6em;
+    padding: 0 2px;
+  }
 }

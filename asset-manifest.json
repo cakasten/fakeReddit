@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/fakereddit/static/css/main.73faf20f.css",
+    "main.css": "/fakereddit/static/css/main.0d2359e3.css",
     "main.js": "/fakereddit/static/js/main.29e01ab0.js",
     "static/js/787.ca62deec.chunk.js": "/fakereddit/static/js/787.ca62deec.chunk.js",
     "index.html": "/fakereddit/index.html",
-    "main.73faf20f.css.map": "/fakereddit/static/css/main.73faf20f.css.map",
+    "main.0d2359e3.css.map": "/fakereddit/static/css/main.0d2359e3.css.map",
     "main.29e01ab0.js.map": "/fakereddit/static/js/main.29e01ab0.js.map",
     "787.ca62deec.chunk.js.map": "/fakereddit/static/js/787.ca62deec.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.73faf20f.css",
+    "static/css/main.0d2359e3.css",
     "static/js/main.29e01ab0.js"
   ]
 }

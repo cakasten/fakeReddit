@@ -19,8 +19,10 @@ const Post = (props) => {
       <Votes votes={votes} styles={styles.vote} />
       <h1 className={styles.title}>{title}</h1>
       <p className={styles.author}>Posted by: {author}</p>
-      <p className={styles.subreddit} onClick={handleClick}>r/{subreddit}</p>
-      {video && (
+      <p className={styles.subreddit} onClick={handleClick}>
+        r/{subreddit}
+      </p>
+      {(video && (
         <div className={styles.body}>
           <video
             src={props.video}
@@ -30,10 +32,10 @@ const Post = (props) => {
           ></video>
           <VideoControls />
         </div>
-      )}
-      {!noImgKeywords.includes(bodyImg) && (
-        <img src={bodyImg} alt="nothing shown" className={styles.body} />
-      )}
+      )) ||
+        (!noImgKeywords.includes(bodyImg) && (
+          <img src={bodyImg} alt="nothing shown" className={styles.body} />
+        ))}
       {postData.data.selftext && (
         <p className={styles.bodyText}>{postData.data.selftext}</p>
       )}

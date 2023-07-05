@@ -5,17 +5,17 @@
   display: flex;
   align-items: center;
   background-color: rgba(214, 214, 214, 0.706);
-  /* display: none; */
   height: 0;
-  transition: all .7s;
+  transition: all 0.7s;
 }
 
 .playPause {
+  opacity: 0;
   font-size: 20px;
   width: 0;
   margin: 3px 8px;
   color: blue;
-  transition: all .7s;
+  transition: all 0.7s;
 }
 
 .playPause:hover {
@@ -41,6 +41,5 @@ video:hover + .controlBar {
 
 video:hover + .controlBar > .playPause {
   width: 20px;
+  opacity: 1;
 }
-
-

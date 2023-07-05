@@ -4,14 +4,18 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: rgba(94, 94, 94, 0.433);
+  background-color: rgba(214, 214, 214, 0.706);
+  /* display: none; */
+  height: 0;
+  transition: all .7s;
 }
 
 .playPause {
   font-size: 20px;
-  width: 20px;
+  width: 0;
   margin: 3px 8px;
   color: blue;
+  transition: all .7s;
 }
 
 .playPause:hover {
@@ -26,7 +30,17 @@
 }
 
 .progress {
-    height: 100%;
-    width: 100px;
-    background-color: red;
+  height: 100%;
+  width: 100px;
+  background-color: red;
 }
+
+video:hover + .controlBar {
+  height: 26px;
+}
+
+video:hover + .controlBar > .playPause {
+  width: 20px;
+}
+
+

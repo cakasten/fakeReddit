@@ -37,7 +37,7 @@
   display: flex;
   position: relative;
   justify-content: center;
-  grid-column: 1 / 4;
+  grid-column: 2 / 3;
   grid-row: 2;
 }
 

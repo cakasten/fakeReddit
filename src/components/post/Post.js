@@ -25,12 +25,14 @@ const Post = (props) => {
       {(video && (
         <div className={styles.body}>
           <video
+            autoPlay
             src={props.video}
             type="video/mp4"
             width="100%"
             height="auto"
+            controls
           ></video>
-          <VideoControls />
+          {/* <VideoControls /> */}
         </div>
       )) ||
         (bodyImg && (

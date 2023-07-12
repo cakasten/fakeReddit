@@ -33,8 +33,12 @@ const Post = (props) => {
           <VideoControls />
         </div>
       )) ||
-        (!noImgKeywords.includes(bodyImg) && (
-          <img src={bodyImg} alt="nothing shown" className={styles.body} />
+        (bodyImg && (
+          <img
+            src={bodyImg.images[0].source.url}
+            alt="nothing shown"
+            className={styles.body}
+          />
         ))}
       {postData.data.selftext && (
         <p className={styles.bodyText}>{postData.data.selftext}</p>

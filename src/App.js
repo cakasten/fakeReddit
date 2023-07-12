@@ -28,17 +28,18 @@ function App() {
     async function getPosts() {
       try {
         const response = await fetch(
-          `https://www.reddit.com/r/${parsedCategory}.json?limit=20`
+          `https://www.reddit.com/r/${parsedCategory}.json?limit=20&raw_json=1`
         );
         const data = await response.json();
         setPostArray(data.data.children);
+        console.log(data.data.children[0].data.preview);
       } catch (error) {
         console.error("Error: ", error);
       }
     }
     getPosts();
   }, [category]);
-
+  
   return (
     <div className="App">
       <Navbar
@@ -62,7 +63,7 @@ function App() {
                 post.data.is_video && post.data.media.reddit_video.fallback_url
               }
               bodyText={post.data.selftext}
-              bodyImg={post.data.thumbnail}
+              bodyImg={post.data.preview}
             />
           )
       )}

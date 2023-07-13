@@ -30,17 +30,18 @@ function App() {
     setPostArray([]);
     async function getPosts() {
       try {
+        setIsLoading(true);
         const response = await fetch(
           `https://www.reddit.com/r/${parsedCategory}.json?limit=20&raw_json=1`
         );
         const data = await response.json();
         setPostArray(data.data.children);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error: ", error);
       }
     }
     getPosts();
-    setIsLoading(false);
   }, [category]);
 
   useEffect(() => {
@@ -70,7 +71,11 @@ function App() {
         handleSearchInput={handleSearchInput}
       />
       {isLoading ? (
-        <Post />
+        <>
+          <Post />
+          <Post />
+          <Post />
+        </>
       ) : (
         postArray.map(
           (post) =>

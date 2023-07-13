@@ -1,7 +1,5 @@
 
 
-.voter {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.arrow:hover {
+    cursor: pointer;
 }

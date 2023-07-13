@@ -15,6 +15,7 @@ const Post = (props) => {
   } = props;
   const noImgKeywords = ["default", "self", "image", ""];
   return (
+     postData ? (
     <div className={styles.post}>
       <Votes votes={votes} styles={styles.vote} />
       <h1 className={styles.title}>{title}</h1>
@@ -45,6 +46,13 @@ const Post = (props) => {
         <p className={styles.bodyText}>{postData.data.selftext}</p>
       )}
     </div>
+    ) : (
+      <div className={styles.post}>
+        <Votes />
+        <h1 className={styles.title}>Loading</h1>
+      </div>
+    )
+
   );
 };
 

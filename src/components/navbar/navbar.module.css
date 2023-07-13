@@ -58,7 +58,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgba(182, 53, 53, 0.72);
+  background-color: rgba(182, 53, 53, 0.865);
   transition: all 0.3s;
   top: 0;
 }

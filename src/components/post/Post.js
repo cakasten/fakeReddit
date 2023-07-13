@@ -13,7 +13,6 @@ const Post = (props) => {
     postData,
     handleClick,
   } = props;
-  const noImgKeywords = ["default", "self", "image", ""];
   return (
      postData ? (
     <div className={styles.post}>

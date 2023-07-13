@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
+import store from "./store/store";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Post from "./components/post/Post";
@@ -62,42 +64,44 @@ function App() {
   }, [searchTerm]);
 
   return (
-    <div className="App">
-      <Navbar
-        category={category}
-        categories={categoriesArray}
-        selectCategory={handleCategorySelect}
-        handleSearchInput={handleSearchInput}
-      />
-      {isLoading ? (
-        <>
-          <Post />
-          <Post />
-          <Post />
-        </>
-      ) : (
-        postArray.map(
-          (post) =>
-            !post.data.over_18 && (
-              <Post
-                handleClick={handleClick}
-                postData={post}
-                key={post.data.id}
-                title={post.data.title}
-                author={post.data.author}
-                votes={post.data.ups}
-                subreddit={post.data.subreddit}
-                video={
-                  post.data.is_video &&
-                  post.data.media.reddit_video.fallback_url
-                }
-                bodyText={post.data.selftext}
-                bodyImg={post.data.preview}
-              />
-            )
-        )
-      )}
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Navbar
+          category={category}
+          categories={categoriesArray}
+          selectCategory={handleCategorySelect}
+          handleSearchInput={handleSearchInput}
+        />
+        {isLoading ? (
+          <>
+            <Post />
+            <Post />
+            <Post />
+          </>
+        ) : (
+          postArray.map(
+            (post) =>
+              !post.data.over_18 && (
+                <Post
+                  handleClick={handleClick}
+                  postData={post}
+                  key={post.data.id}
+                  title={post.data.title}
+                  author={post.data.author}
+                  votes={post.data.ups}
+                  subreddit={post.data.subreddit}
+                  video={
+                    post.data.is_video &&
+                    post.data.media.reddit_video.fallback_url
+                  }
+                  bodyText={post.data.selftext}
+                  bodyImg={post.data.preview}
+                />
+              )
+          )
+        )}
+      </div>
+    </Provider>
   );
 }
 

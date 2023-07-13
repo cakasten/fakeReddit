@@ -21,7 +21,6 @@ function App() {
 
   const handleSearchInput = (e) => {
     e.preventDefault();
-    // setCategory(e.target[1].value);
     setSearchTerm(e.target[1].value);
   };
 

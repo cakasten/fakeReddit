@@ -50,10 +50,10 @@ function App() {
       try {
         setIsLoading(true);
         const response = await fetch(
-          `https://www.reddit.com/search.json?q=${parseSearchTerm}`
+          `https://www.reddit.com/search.json?q=${parseSearchTerm}&raw_json=1`
         );
         const data = await response.json();
-        console.log(data);
+        setPostArray(data.data.children);
         setIsLoading(false);
       } catch (error) {
         console.error("Error: ", error);

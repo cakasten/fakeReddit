@@ -5,11 +5,12 @@ const initialState = {
   searchTerm: "",
   isLoading: true,
   category: "popular",
+  categoriesArray: ["Popular", "Programming Humor", "Ask Reddit"],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "Set_POST_ARRAY":
+    case 'SET_POST_ARRAY':
       return {
         ...state,
         postArray: action.payload,
@@ -17,7 +18,7 @@ const reducer = (state = initialState, action) => {
     case "SET_SEARCH_TERM":
       return {
         ...state,
-        postArray: action.payload,
+        searchTerm: action.payload,
       };
     case "SET_IS_LOADING":
       return {

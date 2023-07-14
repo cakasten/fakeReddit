@@ -1,6 +1,6 @@
-import VideoControls from "../videoControls/VideoControls";
+// import VideoControls from "../videoControls/VideoControls";
 import Votes from "../votes/Votes";
-import styles from "./post.module.css";
+import styles from "./posts.module.css";
 
 const Post = (props) => {
   const {

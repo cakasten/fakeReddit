@@ -14,12 +14,20 @@ const props = {
 
 it("Renders post title correctly", () => {
   render(<Post {...props} />);
-  const titleElement = screen.getByText("Test Post");
+  const titleElement = screen.getByText(props.title, { selector: "h1.title" });
   expect(titleElement).toBeInTheDocument();
 });
 
-it("Renders the votes correctly", () => {
+it("Renders votes correctly", () => {
   render(<Post {...props} />);
-  const votesElement = screen.getByText("10");
+  const votesElement = screen.getByText(props.votes, { selector: "p.votes" });
   expect(votesElement).toBeInTheDocument();
+});
+
+it("Renders the author correctly", () => {
+  render(<Post {...props} />);
+  const authorElement = screen.getByText(`Posted by: ${props.author}`, {
+    selector: "p.author",
+  });
+  expect(authorElement).toBeInTheDocument();
 });

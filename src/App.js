@@ -9,7 +9,7 @@ import {
 
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
-import Post from "./components/post/Posts";
+import Post from "./components/post/Post";
 
 function App() {
   const dispatch = useDispatch();

@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+// import postReducer from "./slices/postSlice";
 
 const initialState = {
   postArray: [],
@@ -10,7 +11,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_POST_ARRAY':
+    case "SET_POST_ARRAY":
       return {
         ...state,
         postArray: action.payload,

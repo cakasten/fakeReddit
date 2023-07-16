@@ -1,43 +1,23 @@
-import { configureStore } from "@reduxjs/toolkit";
-// import postReducer from "./slices/postSlice";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import searchSlice from "../slices/searchSlice";
+import postSlice from "../components/post/postSlice";
+import appSlice from "../slices/appSlice";
 
-const initialState = {
-  postArray: [],
-  searchTerm: "",
-  isLoading: true,
-  category: "popular",
-  categoriesArray: ["Popular", "Programming Humor", "Ask Reddit"],
-};
+// const initialState = {
+//   postArray: [],
+//   isLoading: true,
+//   category: "popular",
+//   categoriesArray: ["Popular", "Programming Humor", "Ask Reddit"],
+// };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "SET_POST_ARRAY":
-      return {
-        ...state,
-        postArray: action.payload,
-      };
-    case "SET_SEARCH_TERM":
-      return {
-        ...state,
-        searchTerm: action.payload,
-      };
-    case "SET_IS_LOADING":
-      return {
-        ...state,
-        isLoading: action.payload,
-      };
-    case "SET_CATEGORY":
-      return {
-        ...state,
-        category: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+const rootReducer = combineReducers({
+  search: searchSlice,
+  post: postSlice,
+  app: appSlice,
+});
 
 const store = configureStore({
-  reducer,
+  reducer: rootReducer,
 });
 
 export default store;

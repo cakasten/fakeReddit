@@ -19,7 +19,7 @@ const testVotesDisplay = (votes, expectedText) => {
   expect(votesElement.textContent).toBe(expectedText);
 };
 
-describe("Votes", () => {
+describe("Votes component", () => {
   it("displays '-' when votes is equal to 0", () => {
     testVotesDisplay(props.votes0, "-");
   });

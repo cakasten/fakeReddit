@@ -1,11 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setCategory,
-  setSearchTerm,
-  setIsLoading,
-  setPostArray,
-} from "./actions/actions";
+import { setPostArray, setCategory, setIsLoading } from "./slices/appSlice";
 
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
@@ -15,10 +10,10 @@ function App() {
   const dispatch = useDispatch();
   const categoriesArray = ["Popular", "Programming Humor", "Ask Reddit"];
 
-  const postArray = useSelector((state) => state.postArray);
-  const searchTerm = useSelector((state) => state.searchTerm);
-  const isLoading = useSelector((state) => state.isLoading);
-  const category = useSelector((state) => state.category);
+  const postArray = useSelector((state) => state.app.postArray);
+  const searchTerm = useSelector((state) => state.search.searchTerm);
+  const isLoading = useSelector((state) => state.app.isLoading);
+  const category = useSelector((state) => state.app.category);
 
   const handleCategorySelect = (e) => {
     dispatch(setCategory(e.target.innerText));
@@ -26,11 +21,6 @@ function App() {
 
   const handleClick = (e) => {
     dispatch(setCategory(e.target.innerText.slice(2).toLowerCase()));
-  };
-
-  const handleSearchInput = (e) => {
-    e.preventDefault();
-    dispatch(setSearchTerm(e.target[1].value));
   };
 
   useEffect(() => {
@@ -76,7 +66,7 @@ function App() {
         category={category}
         categories={categoriesArray}
         selectCategory={handleCategorySelect}
-        handleSearchInput={handleSearchInput}
+        // handleSearchInput={handleSearchInput}
       />
       {isLoading ? (
         <>

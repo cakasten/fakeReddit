@@ -9,28 +9,30 @@ const props = {
   votesMinus1000: -2000,
 };
 
+const renderVotesComponent = (votes) => {
+  render(<Votes votes={votes} />);
+};
+
+const testVotesDisplay = (votes, expectedText) => {
+  renderVotesComponent(votes);
+  const votesElement = screen.getByTestId("votes");
+  expect(votesElement.textContent).toBe(expectedText);
+};
+
 describe("Votes", () => {
   it("displays '-' when votes is equal to 0", () => {
-    render(<Votes votes={props.votes0} />);
-    const votesElement = screen.getByText("-", { selector: "p.votes" });
-    expect(votesElement.textContent).toBe("-");
+    testVotesDisplay(props.votes0, "-");
   });
 
   it("displays entire number when votes is under 1000", () => {
-    render(<Votes votes={props.votesUnder1000} />);
-    const votesElement = screen.getByText("999", { selector: "p.votes" });
-    expect(votesElement.textContent).toBe("999");
+    testVotesDisplay(props.votesUnder1000, "999");
   });
 
   it("displays shortened number when votes is over 999", () => {
-    render(<Votes votes={props.votesOver999} />);
-    const votesElement = screen.getByText("3 K", { selector: "p.votes" });
-    expect(votesElement.textContent).toBe("3 K");
+    testVotesDisplay(props.votesOver999, "3 K");
   });
 
   it("displays shrotened number when votes is less than -999 (-1 k)", () => {
-    render(<Votes votes={props.votesMinus1000} />);
-    const votesElement = screen.getByText("-2 K", { selector: "p.votes" });
-    expect(votesElement.textContent).toBe("-2 K");
+    testVotesDisplay(props.votesMinus1000, "-2 K");
   });
 });

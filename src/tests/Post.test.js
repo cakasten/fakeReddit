@@ -20,7 +20,7 @@ it("Renders post title correctly", () => {
 
 it("Renders votes correctly", () => {
   render(<Post {...props} />);
-  const votesElement = screen.getByText(props.votes, { selector: "p.votes" });
+  const votesElement = screen.getByText(props.votes, { selector: "p" });
   expect(votesElement).toBeInTheDocument();
 });
 

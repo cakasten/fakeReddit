@@ -5,6 +5,7 @@ import { setPostArray, setCategory, setIsLoading } from "./slices/appSlice";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Post from "./components/post/Post";
+import PostList from "./components/postList/PostList";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,13 +20,8 @@ function App() {
     dispatch(setCategory(e.target.innerText));
   };
 
-  const handleClick = (e) => {
-    dispatch(setCategory(e.target.innerText.slice(2).toLowerCase()));
-  };
-
   useEffect(() => {
     const parsedCategory = category.split(" ").join("").toLowerCase();
-    setPostArray([]);
     async function getPosts() {
       try {
         dispatch(setIsLoading(true));
@@ -51,6 +47,7 @@ function App() {
           `https://www.reddit.com/search.json?q=${parseSearchTerm}&raw_json=1`
         );
         const data = await response.json();
+
         dispatch(setPostArray(data.data.children));
         dispatch(setIsLoading(false));
       } catch (error) {
@@ -66,7 +63,6 @@ function App() {
         category={category}
         categories={categoriesArray}
         selectCategory={handleCategorySelect}
-        // handleSearchInput={handleSearchInput}
       />
       {isLoading ? (
         <>
@@ -75,26 +71,7 @@ function App() {
           <Post />
         </>
       ) : (
-        postArray.map(
-          (post) =>
-            !post.data.over_18 && (
-              <Post
-                handleClick={handleClick}
-                postData={post}
-                key={post.data.id}
-                title={post.data.title}
-                author={post.data.author}
-                votes={post.data.ups}
-                subreddit={post.data.subreddit}
-                video={
-                  post.data.is_video &&
-                  post.data.media.reddit_video.fallback_url
-                }
-                bodyText={post.data.selftext}
-                bodyImg={post.data.preview}
-              />
-            )
-        )
+        <PostList posts={postArray} />
       )}
     </div>
   );

@@ -3,7 +3,7 @@ import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import styles from "./votes.module.css";
 
 const Votes = (props) => {
-  const { votes } = props;
+  const { upVote, downVote, votes } = props;
 
   const smallVotes =
     votes > 999 || votes < -999
@@ -12,9 +12,17 @@ const Votes = (props) => {
 
   return (
     <div className={props.styles}>
-      <FontAwesomeIcon icon={faAngleUp} className={styles.arrow} />
+      <FontAwesomeIcon
+        icon={faAngleUp}
+        className={styles.arrow}
+        onClick={upVote}
+      />
       <p data-testid="votes">{votes ? smallVotes : "-"}</p>
-      <FontAwesomeIcon icon={faAngleDown} className={styles.arrow} />
+      <FontAwesomeIcon
+        icon={faAngleDown}
+        className={styles.arrow}
+        onClick={downVote}
+      />
     </div>
   );
 };

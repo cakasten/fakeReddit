@@ -1,19 +1,38 @@
 import styles from "./navbar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faCaretDown,
+  faCaretUp,
+} from "@fortawesome/free-solid-svg-icons";
 import Search from "../search/search";
+import { useState } from "react";
 
 const Navbar = (props) => {
+  const [dropdownArrow, setDropdownArrow] = useState(false);
+
+  const handleDropdownHover = (e) => {
+    setDropdownArrow(!dropdownArrow);
+  };
+
   return (
-    <div className={styles.navbar}>
+    <nav className={styles.navbar}>
       <div className={styles.containerLeft}>
         <FontAwesomeIcon icon={faBars} />
-        <div className={styles.category}>
+        <div
+          className={styles.category}
+          onMouseEnter={handleDropdownHover}
+          onMouseLeave={handleDropdownHover}
+        >
           <p>{props.category}</p>
-          <FontAwesomeIcon icon={faCaretUp} />
+          <FontAwesomeIcon icon={!dropdownArrow ? faCaretUp : faCaretDown} />
           <ul>
             {props.categories.map((category) => (
-              <li onClick={props.selectCategory} key={category}>
+              <li
+                onClick={props.selectCategory}
+                className={styles.subreddit}
+                key={category}
+              >
                 {category}
               </li>
             ))}
@@ -32,7 +51,7 @@ const Navbar = (props) => {
           handleSearchInput={props.handleSearchInput}
         />
       </div>
-    </div>
+    </nav>
   );
 };
 

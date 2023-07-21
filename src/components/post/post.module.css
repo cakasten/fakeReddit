@@ -50,7 +50,7 @@
   padding: 10px;
   grid-column: 2 / 3;
   grid-row: 2;
-  height: 300px;
+  max-height: 300px;
 }
 
 img.body {

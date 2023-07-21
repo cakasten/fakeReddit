@@ -7,9 +7,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Search from "../search/search";
 import { useState } from "react";
+import { setCategory } from "../../slices/appSlice";
+import { useDispatch } from "react-redux";
 
 const Navbar = (props) => {
   const [dropdownArrow, setDropdownArrow] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleTitleClick = () => {
+    dispatch(setCategory("Popular"));
+  };
 
   const handleDropdownHover = (e) => {
     setDropdownArrow(!dropdownArrow);
@@ -40,7 +47,7 @@ const Navbar = (props) => {
         </div>
       </div>
       <div className={styles.container}>
-        <div className={styles.titleLogo}>
+        <div className={styles.titleLogo} onClick={handleTitleClick}>
           <img src={require("../../redditLogo.png")} alt="reddit logo" />
           <h1>Fake Reddit</h1>
         </div>

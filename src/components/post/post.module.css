@@ -1,14 +1,14 @@
 .post {
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
-  grid-template-rows: 100px 400px 0.5fr;
+  grid-template-rows: 100px 1fr 50px;
+  gap: 0;
   width: 90%;
   border-radius: 10px;
   background-color: antiquewhite;
   margin: 25px auto;
   max-width: 700px;
 }
-
 
 .title {
   grid-column: 2 / span 1;
@@ -41,13 +41,16 @@
   justify-content: center;
   grid-column: 2 / 3;
   grid-row: 2;
+  height: 400px;
 }
 
 .bodyText {
+  text-align: start;
   overflow: scroll;
   padding: 10px;
   grid-column: 2 / 3;
   grid-row: 2;
+  height: 300px;
 }
 
 img.body {
@@ -63,6 +66,10 @@ img.body {
   font-size: 10px;
   margin-right: 5px;
   word-break: break-all;
+}
+
+.title:hover, .bodyText:hover {
+  cursor: pointer;
 }
 
 .subreddit:hover {

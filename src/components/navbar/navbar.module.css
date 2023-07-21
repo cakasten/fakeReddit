@@ -1,45 +1,40 @@
 .navbar {
   position: fixed;
+  z-index: 2;
   left: 0;
   right: 0;
   height: 50px;
   top: 0;
   background-color: rgb(218, 199, 199);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 0 15px;
 }
 
 .containerLeft {
-  position: relative;
   display: inline-flex;
   align-items: center;
-  width: 50%;
+  width: 33%;
 }
-
 .containerRight {
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
-  width: 50%;
-  position: relative;
+  width: 33%;
 }
 
 .category {
-  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
   border: none;
   border-radius: 15px;
   margin-left: 15px;
   height: 15px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.545);
-  z-index: 1;
+  flex-grow: 0;
 }
-
 .category p {
   margin-right: 10px;
 }
@@ -48,36 +43,44 @@
   cursor: pointer;
 }
 
-.category ul {
+.category > ul {
   position: absolute;
+  border-radius: 0 0 20px 20px;
+  padding: 0;
+  top: -300px;
+  width: 200px;
+  min-height: 200px;
+}
+
+.category:hover > ul {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(182, 53, 53, 0.865);
+  transition: all 0.3s;
+  top: 0;
+}
+
+.category li {
   list-style-type: none;
-  z-index: 2;
-  bottom: 60%;
-  padding: 8px;
-  min-width: 100px;
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+  transition: all 0.2s ease-in;
 }
 
-.category:hover ul {
-  display: block;
-  top: 54%;
-}
+.category li:hover {
+  width: 100%;
 
-li {
-  background-color: aqua;
-  padding: 8px;
-}
-.category li:last-of-type {
-  border-radius: 0 0 10px 10px;
-}
-li:hover {
-  background-color: azure;
+  background-color: rgba(0, 0, 0, 0.145);
 }
 
 .titleLogo {
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  min-width: 186px;
 }
 
 .titleLogo img {
@@ -88,7 +91,6 @@ li:hover {
 @media only screen and (max-width: 750px) {
   .titleLogo {
     justify-content: center;
-    min-width: none;
   }
   .titleLogo h1 {
     display: none;
@@ -97,7 +99,7 @@ li:hover {
     margin: 0;
   }
   .navbar {
-    font-size: 0.55em;
+    font-size: .55em;
   }
   .category {
     max-width: 100px;

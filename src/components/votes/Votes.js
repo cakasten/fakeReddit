@@ -7,7 +7,7 @@ const Votes = (props) => {
 
   const smallVotes =
     votes > 999 || votes < -999
-      ? `${Math.round((votes / 1000) * 10) / 10} K`
+      ? `${Math.round((votes / 1000) * 10) / 10}K`
       : votes;
 
   return (
